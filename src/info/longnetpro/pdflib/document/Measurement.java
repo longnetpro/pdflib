@@ -53,6 +53,15 @@ public class Measurement {
 		return inchesToMillimeters(userUnitsToInches(units, DEFAULT_USER_UNIT_MULTIPLIER));
 	}
 
+	public static float dotsToUserUnits(float pixels, float dpi, float multiplier) {
+		float inches = pixels / dpi;
+		return inchesToUserUnits(inches, multiplier);
+	}
+
+	public static float dotsToUserUnits(float pixels, float dpi) {
+		return dotsToUserUnits(pixels, dpi, 1f);
+	}
+
 	private float userUnitMultiplier = DEFAULT_USER_UNIT_MULTIPLIER;
 	private float userUnits = 0f;
 	private float inches = 0f;
@@ -118,5 +127,7 @@ public class Measurement {
 	public static void main(String[] args) {
 		Measurement mes = new Measurement().setUserUnitMultiplier(2f).setInches(1f);
 		System.out.println(mes.getMillimeters());
+		float userUnit = Measurement.dotsToUserUnits(335, 96);
+		System.out.println(userUnit);
 	}
 }
