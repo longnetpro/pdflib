@@ -10,6 +10,10 @@ public class PdfIndirectReference extends PdfObject {
 		this.objectNumber = objectNumber;
 		this.generation = generation;
 	}
+	
+	public PdfIndirectReference(byte[] bytes) {
+		super(PdfObjectType.INDIRECT_REFERENCE, bytes);
+	}
 
 	public int getObjectNumber() {
 		return objectNumber;
@@ -25,6 +29,18 @@ public class PdfIndirectReference extends PdfObject {
 
 	public void setGeneration(int generation) {
 		this.generation = generation;
+	}
+
+	@Override
+	public void parseBytes(byte[] bytes) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void convertToBytes() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

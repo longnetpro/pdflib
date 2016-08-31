@@ -1,6 +1,6 @@
 package info.longnetpro.pdflib.pdf;
 
-public class PdfNull extends PdfObject {
+public final class PdfNull extends PdfObject {
 	/**
 	 * 
 	 */
@@ -9,6 +9,7 @@ public class PdfNull extends PdfObject {
 
 	private PdfNull() {
 		super(PdfObjectType.NULL);
+		convertToBytes();
 	}
 
 	@Override
@@ -20,4 +21,16 @@ public class PdfNull extends PdfObject {
 		}
 	}
 
+	@Override
+	public void parseBytes(byte[] bytes) {
+	}
+
+	@Override
+	public void convertToBytes() {
+		this.bytes = toString().getBytes();
+	}
+
+	public String toString() {
+		return "null";
+	}
 }

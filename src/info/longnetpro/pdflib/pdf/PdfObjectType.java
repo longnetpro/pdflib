@@ -1,6 +1,8 @@
 package info.longnetpro.pdflib.pdf;
 
 public interface PdfObjectType {
+	public final static PdfObject PDF_NULL = PdfNull.NULL;
+
 	public static final int BOOLEAN = 1;
 	public static final int NUMBER = 2;
 	public static final int STRING = 3;

@@ -2,8 +2,7 @@ package info.longnetpro.pdflib.pdf;
 
 import java.io.Serializable;
 
-public class PdfObject implements Serializable {
-	public static final PdfObject PDF_NULL = PdfNull.NULL;
+public abstract class PdfObject implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -12,12 +11,17 @@ public class PdfObject implements Serializable {
 
 	public PdfObject(int type) {
 		this.type = type;
+		this.bytes = new byte[] {};
 	}
 
 	public PdfObject(int type, byte[] bytes) {
 		this.type = type;
 		this.bytes = bytes;
+		parseBytes(bytes);
 	}
+
+	public abstract void parseBytes(byte[] bytes);
+	public abstract void convertToBytes();
 
 	public boolean canBeInObjectStream() {
 		switch (this.type) {

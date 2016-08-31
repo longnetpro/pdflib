@@ -6,6 +6,10 @@ public class PdfIndirectObject extends PdfObject {
 		super(PdfObjectType.INDIRECT_OBJECT);
 	}
 
+	public PdfIndirectObject(byte[] bytes) {
+		super(PdfObjectType.INDIRECT_OBJECT, bytes);
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	private PdfIndirectReference indirectReference;
@@ -25,5 +29,17 @@ public class PdfIndirectObject extends PdfObject {
 
 	public void setPdfObject(PdfObject pdfObject) {
 		this.pdfObject = pdfObject;
+	}
+
+	@Override
+	public void parseBytes(byte[] bytes) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void convertToBytes() {
+		// TODO Auto-generated method stub
+		
 	}
 }
